@@ -8,10 +8,10 @@ set -eoux pipefail
 /ctx/build_files/base/01-add_repos.sh
 
 # shellcheck disable=SC1091
-/ctx/build_files/base/02-kernel_akmods.sh
+# /ctx/build_files/base/02-kernel_akmods.sh
 
 # shellcheck disable=SC1091
-/ctx/build_files/base/03-kernel_modules.sh
+/ctx/build_files/base/03-install_packages.sh
 
 # shellcheck disable=SC1091
 /ctx/build_files/base/04-customizations.sh
