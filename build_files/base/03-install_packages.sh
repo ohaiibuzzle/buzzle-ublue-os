@@ -16,7 +16,9 @@ PACKAGES=(
     flatpak-spawn
     fuse
     fzf
+    git
     google-noto-fonts-all
+    greetd
     grub2-tools-extra
     heif-pixbuf-loader
     htop
@@ -54,6 +56,7 @@ PACKAGES=(
     symlinks
     tcpdump
     tmux
+    tuigreet
     traceroute
     vim
     vulkan
