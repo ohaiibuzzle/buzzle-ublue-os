@@ -15,3 +15,12 @@ curl --retry 3 -Lo /etc/yum.repos.d/_copr_che-nerd-fonts-"$(rpm -E %fedora)".rep
 
 # AKMODS Repo
 curl --retry 3 -Lo /etc/yum.repos.d/_copr_ublue-os-akmods.repo https://copr.fedorainfracloud.org/coprs/ublue-os/akmods/repo/fedora-"$(rpm -E %fedora)"/ublue-os-akmods-fedora-"$(rpm -E %fedora)".repo
+
+# Podman-bootc
+curl --retry 3 -Lo /etc/yum.repos.d/gmaglione-podman-bootc-fedora-"$(rpm -E %fedora)".repo \
+    https://copr.fedorainfracloud.org/coprs/gmaglione/podman-bootc/repo/fedora-"$(rpm -E %fedora)"/gmaglione-podman-bootc-fedora-"$(rpm -E %fedora)".repo
+
+# RPMFusion
+rpm-ostree install \
+    https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-"$(rpm -E %fedora)".noarch.rpm \
+    https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-"$(rpm -E %fedora)".noarch.rpm

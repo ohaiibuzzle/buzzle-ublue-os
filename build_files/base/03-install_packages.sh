@@ -1,17 +1,13 @@
 PACKAGES=(
     alsa-firmware
+    akmod-nvidia
     android-tools
     android-udev-rules
     apr
     apr-util
     btop
-    code
     dbus-x11
     distrobox
-    docker-ce
-    docker-ce-cli
-    docker-buildx-plugin
-    docker-compose-plugin
     ffmpeg
     ffmpeg-libs
     ffmpegthumbnailer
@@ -31,7 +27,6 @@ PACKAGES=(
     libcamera-tools
     libcamera-gstreamer
     libcamera-ipa
-    libfdk-aac
     libratbag-ratbagd
     libva-utils
     lshw
@@ -42,13 +37,17 @@ PACKAGES=(
     nvtop
     openrgb-udev-rules
     openssl
-    oversteer-udev
     pam-u2f
     pam_yubico
     pamu2fcfg
-    pipewire-libs-extra
     pipewire-plugin-libcamera
+    podman-bootc
+    podman-compose
+    podman-machine
+    podman-tui
+    podmansh
     powerstat
+    python3-pip
     smartmontools
     solaar-udev
     squashfs-tools
@@ -57,6 +56,7 @@ PACKAGES=(
     tmux
     traceroute
     vim
+    vulkan
     wireguard-tools
     wl-clipboard
     yubikey-manager

@@ -34,3 +34,5 @@ pip install --prefix=/usr topgrade
 # Register Fonts
 fc-cache -f /usr/share/fonts/ubuntu
 fc-cache -f /usr/share/fonts/inter
+
+sudo systemctl enable nvidia-{suspend,resume,hibernate}
