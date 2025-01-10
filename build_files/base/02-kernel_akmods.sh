@@ -5,7 +5,7 @@
 set -eoux pipefail
 
 # Remove Existing Kernel
-for pkg in kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra; do
+for pkg in kernel kernel-core kernel-modules kernel-modules-core; do
     rpm --erase $pkg --nodeps
 done
 
