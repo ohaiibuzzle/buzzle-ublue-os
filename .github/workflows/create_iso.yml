@@ -1,19 +1,17 @@
 ---
 name: Create ISO release
 on:
-  schedule:
-    - cron: '00 12 */7 * *' 
   workflow_dispatch:
-    
+
 env:
   ARCH: "x86_64"
-  IMAGE_NAME: "${{ github.event.repository.name }}"  # the name of the image produced by this build, matches repo names
+  IMAGE_NAME: "${{ github.event.repository.name }}" # the name of the image produced by this build, matches repo names
   IMAGE_DESC: "Buzzle's Universal Blue Image"
   IMAGE_TAG: "latest"
-  IMAGE_REGISTRY: "ghcr.io/${{ github.repository_owner }}"  # do not edit
+  IMAGE_REGISTRY: "ghcr.io/${{ github.repository_owner }}" # do not edit
   VARIANT: "main"
   VERSION: "41"
-  ARTIFACTHUB_LOGO_URL: "https://avatars.githubusercontent.com/u/120078124?s=200&v=4"  # You should put your own image here so that you get a fancy profile image on https://artifacthub.io/!
+  ARTIFACTHUB_LOGO_URL: "https://avatars.githubusercontent.com/u/120078124?s=200&v=4" # You should put your own image here so that you get a fancy profile image on https://artifacthub.io/!
 
 jobs:
   build_push:
@@ -29,7 +27,7 @@ jobs:
       # These stage versions are pinned by https://github.com/renovatebot/renovate
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
-      
+
       - name: Maximize build space
         uses: ublue-os/remove-unwanted-software@517622d6452028f266b7ba4cc9a123b5f58a6b53 # v7
         with:
@@ -76,12 +74,22 @@ jobs:
         id: upload
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ steps.build.outputs.iso_name }}
-          path: |
-            ${{ steps.build.outputs.iso_path }}
-            ${{ steps.build.outputs.iso_path }}-CHECKSUM
+          name: ${{ steps.build.outputs.iso_name }}-CHECKSUM
+          path: ${{ steps.build.outputs.iso_name }}-CHECKSUM
           if-no-files-found: error
-          retention-days: 14
+          retention-days: 0
           compression-level: 0
 
-  
+      - name: Upload image to R2
+        id: image_r2_upload
+        env:
+          RCLONE_CONFIG_R2_TYPE: "s3"
+          RCLONE_CONFIG_R2_PROVIDER: "Cloudflare"
+          RCLONE_CONFIG_R2_ENV_AUTH: true
+          RCLONE_CONFIG_R2_ACCESS_KEY_ID: ${{ secrets.RCLONE_ACCESS_KEY_ID }}
+          RCLONE_CONFIG_R2_SECRET_ACCESS_KEY: ${{ secrets.RCLONE_SECRET_ACCESS_KEY }}
+          RCLONE_CONFIG_R2_ENDPOINT: ${{ secrets.RCLONE_ENDPOINT }}
+          RCLONE_CONFIG_R2_NO_CHECK_BUCKET: true
+        run: |
+          sudo -v ; curl https://rclone.org/install.sh | sudo bash
+          rclone copy "${{ steps.build.outputs.iso_name }}" r2:buzzle-ublue/
