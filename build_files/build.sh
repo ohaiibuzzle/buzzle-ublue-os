@@ -20,7 +20,7 @@ set -eoux pipefail
 /ctx/build_files/base/06-brew.sh
 
 # shellcheck disable=SC1091
-/ctx/build_files/base/07-bootc.sh
+# /ctx/build_files/base/07-bootc.sh
 
 # shellcheck disable=SC1091
 # /ctx/build_files/base/08-initramfs.sh
