@@ -13,9 +13,6 @@ on:
       - '**/README.md'
   workflow_dispatch:
 
-permissions:
-  contents: write
-
 env:
   ARCH: "x86_64"
   IMAGE_NAME: "${{ github.event.repository.name }}"  # the name of the image produced by this build, matches repo names
@@ -36,7 +33,7 @@ jobs:
     runs-on: ubuntu-24.04
 
     permissions:
-      contents: read
+      contents: write
       packages: write
       id-token: write
 
@@ -59,6 +56,8 @@ jobs:
           # https://artifacthub.io/docs/topics/repositories/container-images/
           # https://linux.die.net/man/1/date
           echo "date=$(date -u +%Y\-%m\-%d\T%H\:%M\:%S\Z)" >> $GITHUB_OUTPUT
+          # Unix timestamp (for releases)
+          echo "timestamp=$(date -u +%s)" >> $GITHUB_OUTPUT
 
       # Image metadata for https://artifacthub.io/ - This is optional but is highly recommended so we all can get a index of all the custom images
       # The metadata by itself is not going to do anything, you choose if you want your image to be on ArtifactHub or not.
@@ -203,15 +202,16 @@ jobs:
           if-no-files-found: error
           retention-days: 0
           compression-level: 0
-      
+
       - name: Create Release
         id: create_release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ steps.date.outputs.date }}
+          tag_name: ${{ steps.date.outputs.timestamp }}
           name: Automated build ${{ steps.date.outputs.date }}
           draft: false
           prerelease: false
           files: |
-            ${{ steps.build.outputs.iso_path }}
-            ${{ steps.build.outputs.iso_path }}-CHECKSUM
+            *.iso
+            *.iso-CHECKSUM
+
