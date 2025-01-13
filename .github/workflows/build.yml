@@ -33,7 +33,7 @@ jobs:
     runs-on: ubuntu-24.04
 
     permissions:
-      contents: write
+      contents: read
       packages: write
       id-token: write
 
@@ -173,24 +173,6 @@ jobs:
           COSIGN_EXPERIMENTAL: false
           COSIGN_PRIVATE_KEY: ${{ secrets.SIGNING_SECRET }}
 
-      - name: Lowercase Registry
-        id: registry_case
-        uses: ASzc/change-string-case-action@v6
-        with:
-          string: ${{ env.IMAGE_REGISTRY }}
-  
-      - name: Build ISO
-        uses: jasonn3/build-container-installer@main
-        id: build
-        with:
-          arch: ${{ env.ARCH }}
-          image_name: ${{ env.IMAGE_NAME }}
-          image_repo: ${{ steps.registry_case.outputs.lowercase }}
-          image_tag: ${{ env.IMAGE_TAG }}
-          version: ${{ env.VERSION }}
-          variant: ${{ env.VARIANT }}
-          iso_name: ${{ env.IMAGE_NAME }}-${{ env.IMAGE_TAG }}-${{ env.VERSION }}.iso
-
       - name: Upload ISO as artifact
         id: upload
         uses: actions/upload-artifact@v4
@@ -200,18 +182,5 @@ jobs:
             ${{ steps.build.outputs.iso_path }}
             ${{ steps.build.outputs.iso_path }}-CHECKSUM
           if-no-files-found: error
-          retention-days: 0
+          retention-days: 7
           compression-level: 0
-
-      - name: Create Release
-        id: create_release
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: testing-${{ steps.date.outputs.timestamp }}
-          name: Automated build ${{ steps.date.outputs.date }}
-          draft: false
-          prerelease: true
-          files: |
-            *.iso
-            *.iso-CHECKSUM
-
