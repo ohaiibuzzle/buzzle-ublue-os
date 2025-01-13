@@ -2,7 +2,7 @@
 name: Create ISO release
 on:
   schedule:
-    - cron: '0 11 * * 7'  # 30 minutes after weekly build
+    - cron: '00 12 */7 * *' 
   workflow_dispatch:
     
 env:
@@ -72,16 +72,16 @@ jobs:
           variant: ${{ env.VARIANT }}
           iso_name: ${{ env.IMAGE_NAME }}-${{ env.IMAGE_TAG }}-${{ env.VERSION }}.iso
 
-      - name: Create Release
-        id: create_release
-        uses: softprops/action-gh-release@v2
+      - name: Upload ISO as artifact
+        id: upload
+        uses: actions/upload-artifact@v4
         with:
-          tag_name: testing-${{ steps.date.outputs.timestamp }}
-          name: Automated build ${{ steps.date.outputs.date }}
-          draft: false
-          prerelease: true
-          files: |
-            *.iso
-            *.iso-CHECKSUM
-  
+          name: ${{ steps.build.outputs.iso_name }}
+          path: |
+            ${{ steps.build.outputs.iso_path }}
+            ${{ steps.build.outputs.iso_path }}-CHECKSUM
+          if-no-files-found: error
+          retention-days: 14
+          compression-level: 0
+
   
