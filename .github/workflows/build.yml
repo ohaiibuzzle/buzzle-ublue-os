@@ -56,8 +56,8 @@ jobs:
           # https://artifacthub.io/docs/topics/repositories/container-images/
           # https://linux.die.net/man/1/date
           echo "date=$(date -u +%Y\-%m\-%d\T%H\:%M\:%S\Z)" >> $GITHUB_OUTPUT
-          # Unix timestamp (for releases)
-          echo "timestamp=$(date -u +%s)" >> $GITHUB_OUTPUT
+          # Time in form of ddmmyyyyhhmm for CI
+          echo "timestamp=$(date -u +%d%m%Y%H%M)" >> $GITHUB_OUTPUT
 
       # Image metadata for https://artifacthub.io/ - This is optional but is highly recommended so we all can get a index of all the custom images
       # The metadata by itself is not going to do anything, you choose if you want your image to be on ArtifactHub or not.
@@ -207,10 +207,10 @@ jobs:
         id: create_release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ steps.date.outputs.timestamp }}
+          tag_name: testing-${{ steps.date.outputs.timestamp }}
           name: Automated build ${{ steps.date.outputs.date }}
           draft: false
-          prerelease: false
+          prerelease: true
           files: |
             *.iso
             *.iso-CHECKSUM
