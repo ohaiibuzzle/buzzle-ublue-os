@@ -1,69 +1,20 @@
 PACKAGES=(
-    alsa-firmware
     akmod-nvidia
-    android-tools
-    android-udev-rules
-    apr
-    apr-util
-    btop
-    dbus-x11
-    distrobox
-    ffmpeg
-    ffmpeg-libs
-    ffmpegthumbnailer
     firefox
     flatpak
-    flatpak-spawn
-    fuse
-    fzf
-    git
-    google-noto-fonts-all
     greetd
-    grub2-tools-extra
-    heif-pixbuf-loader
-    htop
-    intel-vaapi-driver
-    just
-    kernel-tools
-    libcamera
-    libcamera-tools
-    libcamera-gstreamer
-    libcamera-ipa
-    libratbag-ratbagd
-    libva-utils
-    lshw
     mozilla-fira-mono-fonts
     nerd-fonts
-    net-tools
-    nvme-cli
-    nvtop
-    openrgb-udev-rules
-    openssl
-    pam-u2f
-    pam_yubico
-    pamu2fcfg
-    pipewire-plugin-libcamera
     podman-bootc
     podman-compose
     podman-machine
     podman-tui
     podmansh
-    powerstat
     python3-pip
-    smartmontools
-    solaar-udev
-    squashfs-tools
-    symlinks
-    tcpdump
-    tmux
     tuigreet
-    traceroute
-    vim
     vulkan
-    wireguard-tools
-    wl-clipboard
-    yubikey-manager
-    zstd
+    xorg-x11-drv-nvidia-cuda-libs
+    xorg-x11-drv-nvidia-power
     hyprland
     kitty
     wofi

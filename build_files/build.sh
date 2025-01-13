@@ -8,9 +8,6 @@ set -eoux pipefail
 /ctx/build_files/base/01-add_repos.sh
 
 # shellcheck disable=SC1091
-# /ctx/build_files/base/02-kernel_akmods.sh
-
-# shellcheck disable=SC1091
 /ctx/build_files/base/03-install_packages.sh
 
 # shellcheck disable=SC1091
@@ -26,7 +23,7 @@ set -eoux pipefail
 /ctx/build_files/base/07-bootc.sh
 
 # shellcheck disable=SC1091
-/ctx/build_files/base/08-initramfs.sh
+# /ctx/build_files/base/08-initramfs.sh
 
 mkdir -p /var/lib &&
     mkdir -p /var/tmp &&
