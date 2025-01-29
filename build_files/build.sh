@@ -26,7 +26,7 @@ set -eoux pipefail
 # /ctx/build_files/base/08-initramfs.sh
 
 # shellcheck disable=SC1091
-/ctx/build_files/base/09-finalize.sh
+# /ctx/build_files/base/09-finalize.sh
 
 mkdir -p /var/lib &&
     mkdir -p /var/tmp &&
