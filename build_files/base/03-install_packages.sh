@@ -1,5 +1,4 @@
 PACKAGES=(
-    akmod-nvidia
     firefox
     flatpak
     greetd
@@ -13,8 +12,6 @@ PACKAGES=(
     python3-pip
     tuigreet
     vulkan
-    xorg-x11-drv-nvidia-cuda-libs
-    xorg-x11-drv-nvidia-power
     hyprland
     kitty
     wofi

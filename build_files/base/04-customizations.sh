@@ -46,7 +46,5 @@ command = "tuigreet --cmd /bin/Hyprland"
 user = "greeter"
 EOF
 
-systemctl enable nvidia-{suspend,resume,hibernate} greetd
-
 # Enable greetd
 systemctl enable greetd
