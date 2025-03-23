@@ -1,7 +1,7 @@
 FROM scratch AS ctx
 COPY / /
 
-FROM ghcr.io/ublue-os/base-nvidia:main-41 as base
+FROM ghcr.io/ublue-os/base-nvidia:latest as base
 
 RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
     --mount=type=bind,from=ctx,source=/,target=/ctx \
