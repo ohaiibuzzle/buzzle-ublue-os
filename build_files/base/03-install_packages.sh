@@ -1,5 +1,7 @@
 PACKAGES=(
-    firefox
+    akmod-nvidia
+    micro
+    nano
     flatpak
     greetd
     mozilla-fira-mono-fonts
@@ -13,9 +15,23 @@ PACKAGES=(
     tuigreet
     vulkan
     hyprland
-    kitty
+    foot
     wofi
+    waybar
     vifm
+    git
+    just
+    wireplumber
+    brightnessctl
+    playerctl
+    firewalld
+    network-manager-applet
+    hyprpaper
+    hyprlock
+    hypridle
+    blueman
+    polkit-kde
+    distrobox
 )
 
 rpm-ostree install "${PACKAGES[@]}"
