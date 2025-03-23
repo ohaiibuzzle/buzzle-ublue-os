@@ -53,3 +53,6 @@ systemctl enable greetd
 
 # Hides annoying boot messages
 grubby --args "quiet loglevel=3 splash" --update-kernel ALL
+
+# Remove just's docs
+rm -rf /usr/share/doc/just

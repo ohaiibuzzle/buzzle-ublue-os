@@ -1,5 +1,4 @@
 PACKAGES=(
-    akmod-nvidia
     micro
     nano
     flatpak
