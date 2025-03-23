@@ -43,8 +43,13 @@ vt = 1
 # The default session, also known as the greeter.
 [default_session]
 command = "tuigreet --cmd /bin/Hyprland"
-user = "greeter"
+user = "greetd"
 EOF
+
+systemctl enable nvidia-{suspend,resume,hibernate} greetd
 
 # Enable greetd
 systemctl enable greetd
+
+# Hides annoying boot messages
+grubby --args "quiet loglevel=3 splash" --update-kernel ALL
