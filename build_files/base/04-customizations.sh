@@ -51,5 +51,5 @@ EOF
 # Enable greetd
 systemctl enable greetd
 
-# Remove just's docs
-rm -rf /usr/share/doc/just
+# Workaround: Rename just's CN readme to README.zh-cn.md
+mv '/usr/share/doc/just/README.中文.md' '/usr/share/doc/just/README.zh-cn.md'
