@@ -52,4 +52,4 @@ EOF
 systemctl enable greetd
 
 # Remove just's docs
-# rm -rf /usr/share/doc/just
+rm -rf /usr/share/doc/just
