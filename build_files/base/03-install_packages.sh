@@ -19,7 +19,6 @@ PACKAGES=(
     waybar
     vifm
     git
-    just
     wireplumber
     brightnessctl
     playerctl
