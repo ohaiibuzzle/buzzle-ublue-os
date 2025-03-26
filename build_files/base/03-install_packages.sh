@@ -31,6 +31,7 @@ PACKAGES=(
     blueman
     polkit-kde
     distrobox
+    ublue-brew
 )
 
 dnf5 install -y "${PACKAGES[@]}"

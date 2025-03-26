@@ -17,7 +17,7 @@ set -eoux pipefail
 /ctx/build_files/base/05-firmware.sh
 
 # shellcheck disable=SC1091
-/ctx/build_files/base/06-brew.sh
+# /ctx/build_files/base/06-brew.sh
 
 # shellcheck disable=SC1091
 # /ctx/build_files/base/07-bootc.sh
