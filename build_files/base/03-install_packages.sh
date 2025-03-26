@@ -33,4 +33,4 @@ PACKAGES=(
     distrobox
 )
 
-dnf5 install "${PACKAGES[@]}"
+dnf5 install -y "${PACKAGES[@]}"

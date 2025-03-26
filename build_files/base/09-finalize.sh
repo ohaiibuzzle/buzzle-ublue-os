@@ -1,6 +1,6 @@
 #/bin/bash
 
-# move the content of /usr/etc to /etc and delete it
-cp -fra /usr/etc /etc
-rm -rf /usr/etc
-
+dnf5 -y copr disable ublue-os/staging
+dnf5 -y copr disable sentry/switcheroo-control_discrete
+dnf5 -y copr disable che/nerd-fonts
+dnf5 -y copr disable gmaglione/podman-bootc
