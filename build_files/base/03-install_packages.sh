@@ -33,4 +33,4 @@ PACKAGES=(
     distrobox
 )
 
-rpm-ostree install "${PACKAGES[@]}"
+dnf5 install "${PACKAGES[@]}"
