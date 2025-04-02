@@ -5,3 +5,4 @@ dnf5 -y copr disable ublue-os/packages
 dnf5 -y copr disable sentry/switcheroo-control_discrete
 dnf5 -y copr disable che/nerd-fonts
 dnf5 -y copr disable gmaglione/podman-bootc
+dnf5 -y copr disable solopasha/hyprland

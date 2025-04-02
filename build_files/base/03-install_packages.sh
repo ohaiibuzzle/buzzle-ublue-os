@@ -2,7 +2,7 @@ PACKAGES=(
     micro
     nano
     flatpak
-    greetd
+    sddm
     mozilla-fira-mono-fonts
     nerd-fonts
     podman-bootc
@@ -11,7 +11,6 @@ PACKAGES=(
     podman-tui
     podmansh
     python3-pip
-    tuigreet
     vulkan
     hyprland
     foot
@@ -19,7 +18,6 @@ PACKAGES=(
     waybar
     vifm
     git
-    just
     wireplumber
     brightnessctl
     playerctl
@@ -31,7 +29,21 @@ PACKAGES=(
     blueman
     polkit-kde
     distrobox
+    grimshot
+    unzip
+    curl
+    plymouth
+    plymouth-plugin-script
+    sbctl
+    fontawesome-fonts-all
     ublue-brew
+    xdg-user-dirs
+    grubby
+    breeze-icon-theme
+    power-profiles-daemon
+    xdg-desktop-portal-hyprland
+    hyprland-plugins
+    hyprshot
 )
 
 dnf5 install -y "${PACKAGES[@]}"
