@@ -34,6 +34,3 @@ fc-cache -f /usr/share/fonts/ubuntu
 fc-cache -f /usr/share/fonts/inter
 
 # systemctl enable nvidia-{suspend,resume,hibernate} greetd
-
-# Enable greetd
-systemctl enable greetd
