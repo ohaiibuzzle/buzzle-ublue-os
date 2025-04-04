@@ -33,17 +33,6 @@ pip install --prefix=/usr topgrade
 fc-cache -f /usr/share/fonts/ubuntu
 fc-cache -f /usr/share/fonts/inter
 
-# Configure Greetd to use tuigreet
-cat >/etc/greetd/config.toml <<EOF
-[terminal]
-vt = 1
-
-# The default session, also known as the greeter.
-[default_session]
-command = "tuigreet --cmd /bin/Hyprland"
-user = "greetd"
-EOF
-
 # systemctl enable nvidia-{suspend,resume,hibernate} greetd
 
 # Enable greetd
