@@ -34,7 +34,6 @@ PACKAGES=(
     curl
     plymouth
     plymouth-plugin-script
-    sbctl
     fontawesome-fonts-all
     ublue-brew
     xdg-user-dirs
