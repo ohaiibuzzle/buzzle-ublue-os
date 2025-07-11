@@ -43,6 +43,10 @@ PACKAGES=(
     xdg-desktop-portal-hyprland
     hyprland-plugins
     hyprshot
+    code
+    tailscale
 )
 
 dnf5 install -y "${PACKAGES[@]}"
+
+dnf5 install -y code

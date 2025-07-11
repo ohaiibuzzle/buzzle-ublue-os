@@ -10,12 +10,6 @@ rpm-ostree override replace \
     fwupd-plugin-modem-manager \
     fwupd-plugin-uefi-capsule-data
 
-# Switcheroo patch
-rpm-ostree override replace \
-    --experimental \
-    --from repo=copr:copr.fedorainfracloud.org:sentry:switcheroo-control_discrete \
-    switcheroo-control
-
 # Starship Shell Prompt
 curl --retry 3 -Lo /tmp/starship.tar.gz "https://github.com/starship/starship/releases/latest/download/starship-x86_64-unknown-linux-gnu.tar.gz"
 tar -xzf /tmp/starship.tar.gz -C /tmp
@@ -33,4 +27,5 @@ pip install --prefix=/usr topgrade
 fc-cache -f /usr/share/fonts/ubuntu
 fc-cache -f /usr/share/fonts/inter
 
-# systemctl enable nvidia-{suspend,resume,hibernate} greetd
+# Enable greetd
+systemctl enable sddm
