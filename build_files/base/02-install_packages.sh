@@ -3,7 +3,7 @@ PACKAGES=(
     nano
     flatpak
     sddm
-    mozilla-fira-mono-fonts
+    mozilla-fira-fonts
     nerd-fonts
     podman-bootc
     podman-compose
@@ -45,6 +45,8 @@ PACKAGES=(
     hyprshot
     code
     tailscale
+    python3
+    python3-pip
 )
 
 dnf5 install -y "${PACKAGES[@]}"
