@@ -20,9 +20,6 @@ echo 'eval "$(starship init bash)"' >>/etc/bashrc
 # Bash Prexec
 curl --retry 3 -Lo /usr/share/bash-prexec https://raw.githubusercontent.com/rcaloras/bash-preexec/master/bash-preexec.sh
 
-# Topgrade Install
-python3 -m pip install --prefix=/usr topgrade
-
 # Register Fonts
 fc-cache -f /usr/share/fonts/ubuntu
 fc-cache -f /usr/share/fonts/inter

@@ -45,8 +45,7 @@ PACKAGES=(
     hyprshot
     code
     tailscale
-    python3
-    python3-pip
+    topgrade
 )
 
 dnf5 install -y "${PACKAGES[@]}"
