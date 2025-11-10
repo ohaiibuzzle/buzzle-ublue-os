@@ -25,4 +25,4 @@ fc-cache -f /usr/share/fonts/ubuntu
 fc-cache -f /usr/share/fonts/inter
 
 # Enable greetd
-systemctl enable sddm
+# systemctl enable sddm
