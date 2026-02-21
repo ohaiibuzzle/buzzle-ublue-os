@@ -13,13 +13,13 @@ env:
   IMAGE_TAG: "latest"
   IMAGE_REGISTRY: "ghcr.io/${{ github.repository_owner }}" # do not edit
   VARIANT: "main"
-  VERSION: "42"
+  VERSION: "latest"
   ARTIFACTHUB_LOGO_URL: "https://avatars.githubusercontent.com/u/120078124?s=200&v=4" # You should put your own image here so that you get a fancy profile image on https://artifacthub.io/!
 
 jobs:
   build_push:
     name: Build and push image
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-slim
 
     permissions:
       contents: write
